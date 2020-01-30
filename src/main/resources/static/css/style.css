@@ -1,0 +1,267 @@
+/*
+ * Base structure
+ */
+html, body {
+	height: 100%;
+}
+
+/*
+ * main layout
+ */
+.layout-main {
+    display: flex;
+    min-height: calc(100vh - 52px);
+    overflow: hidden;
+}
+
+/*
+ * Content
+ */
+.layout-content {
+    width: 100%;
+    padding-top: 0px;
+}
+
+
+/*
+ * Sidebar
+ */
+.sidebar {
+    width: 0px;
+    height: 100vh;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;    
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: width .5s;
+}
+
+.sidebar .nav {
+	margin-bottom: 0px;
+}
+
+.sidebar .nav-item {
+	width: 100%;
+}
+
+.sidebar .nav-item {
+	margin-left: 0;
+}
+
+.sidebar .nav-link {
+	border-radius: 0;
+} 
+
+.sidebar ul li:hover a, .menu ul li.active a{
+    color: #777777;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.sidebar ul li a{
+    display: block;
+    color:#1a1a1a;
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.sidebar.sidebar-open {
+    width: 300px;
+}
+
+/*
+ * nav-pills home
+ */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	color: #fff;
+	background-color: #1e94d2;
+}
+
+/*
+ * toogle do navbar do menu
+ */ 
+
+.navbar-toggle {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/*
+ * Footer
+ */
+.layout-footer {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	height: 50px;
+	border-top: 1px solid #eeeeee;
+	z-index: 1;
+	background-color: #3f5973;
+	-webkit-box-shadow: 0px -6px 12px -8px rgba(0,0,0,0.64);
+	-moz-box-shadow: 0px -6px 12px -8px rgba(0,0,0,0.64);
+	box-shadow: 0px -6px 12px -8px rgba(0,0,0,0.64);
+}
+
+.footer-copy {
+	font-size: 92%;
+	display: block;
+	color: white;
+	text-align: center;
+}
+
+/* Divs e class dos index */
+
+body {
+  background: rgb(239,245,245);
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+#more-features {
+  padding: 60px 0 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background: #eff5f5;
+}
+
+section {
+  display: block;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section-header .section-title {
+  font-size: 32px;
+  color: #111;
+  text-align: center;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.section-header .section-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #1dc8cd;
+  background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+#more-features h4, #more-features p {
+    margin-left: 0;
+    text-align: center;
+}
+}
+
+#more-features p {
+  font-size: 14px;
+  margin-left: 100px;
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.section-header .section-description {
+  text-align: center;
+  padding-bottom: 40px;
+  color: #777;
+  font-style: italic;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+@media (max-width: 767px) {
+#more-features .box {
+    margin-bottom: 20px;
+}
+}
+
+#more-features .box {
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
+  background: #fff;
+  transition: 0.4s;
+}
+
+@media (max-width: 767px) {
+#more-features .icon {
+    float: none;
+    text-align: center;
+    padding-bottom: 15px;
+}
+}
+
+#more-features .icon {
+  float: left;
+}
+
+#more-features .icon i {
+  color: #666666;
+  font-size: 80px;
+  transition: 0.5s;
+  line-height: 0;
+}
+
+#more-features .icon i:before {
+  background: #1dc8cd;
+  background: linear-gradient(45deg, #1dc8cd 0%, #55fabe 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 767px) {
+#more-features h4, #more-features p {
+    margin-left: 0;
+    text-align: center;
+}
+}
+
+#more-features h4 {
+  margin-left: 100px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+#more-features h4 a {
+  color: #111;
+}
+
+a {
+  color: #1dc8cd;
+  transition: 0.5s;
+}

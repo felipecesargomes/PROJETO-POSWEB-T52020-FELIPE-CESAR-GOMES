@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title th:text="${status}"></title>
+
+<link rel="icon" href="/image/favicon.png" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+</head>		
+<body class="text-center">
+<br/>
+<br/>
+	<div>
+		<h1 class="h3 mb-3 font-weight-normal">
+			<i class="oi oi-warning"></i> 
+			<span th:text="${status}"></span>
+		</h1>
+		
+		<h2 th:text="${error}"></h2>
+		
+		<div>
+			<span>Ops! Ocorreu um erro interno.</span><br/> <span>Por favor, entre em contato com o administrador.</span><br/><br/>
+			<a class="btn btn-primary" type="button" href="javascript:history.back()">Voltar a página anterior</a>
+		</div>
+	</div>
+</body>
+</html>	

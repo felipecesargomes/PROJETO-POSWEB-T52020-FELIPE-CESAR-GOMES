@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light" style="margin-top: 56px; border-bottom: 1px solid rgb(222,226,230);">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span style="color: white;">Cadastrar Paciente</span></li>
+				</ul>
+			</div>
+			<a class="btn btn-light" href="/paciente/listar"
+				role="button"> <span class="oi oi-spreadsheet" title="Cadastro"
+				aria-hidden="true"></span> <span>Listar Paciente</span>
+			</a>
+		</nav>
+		<div class="container" id="cadastro">
+			<div th:replace="fragments/alerta"></div>
+			<form th:action="@{/paciente/salvar}" th:object="${paciente}"
+				method="POST">
+				<div th:replace="fragments/validacao  :: validacao"></div>
+				<div class="form-row" style="padding-top: 4%;">
+					<input type="hidden" class="form-control" id="id"
+						placeholder="ID paciente" autofocus="autofocus" th:field="*{id}" />
+					<div class="form-group col-md-6">
+						<label for="nome" class="col-form-label">Nome</label> <input
+							type="text" class="form-control" id="nome"
+							placeholder="Nome do Paciente" autofocus="autofocus"
+							th:field="*{nome}" pattern="[A-Za-zÂ-ûÁ-ú ]+"
+							title="Para esse campo digite somente letras."
+							required="required" /> <span
+							th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="sobrenome" class="col-form-label">Sobrenome</label> <input
+							type="text" class="form-control" id="sobrenome"
+							placeholder="Sobrenome do Paciente" autofocus="autofocus"
+							th:field="*{sobrenome}" required="required"
+							pattern="[A-Za-zÂ-ûÁ-ú ]+"
+							title="Para esse campo digite somente letras." /> <span
+							th:if="${#fields.hasErrors('sobrenome')}"
+							th:errors="*{sobrenome}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="rg" class="col-form-label">RG</label> <input
+							type="text" class="form-control" id="rg"
+							placeholder="RG do Paciente" autofocus="autofocus"
+							th:field="*{rg}" required="required" pattern="[0-9]+$" /> <span
+							th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="cpf" class="col-form-label">CPF</label> <input
+							type="text" th:field="*{cpf}" class="form-control" id="cpf"
+							placeholder="CPF do Paciente" required="required"> <span
+							th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="dataNascimento" class="col-form-label">Data de
+							Nascimento</label> <input type="date" class="form-control"
+							id="dataNascimento" autofocus="autofocus"
+							th:field="*{dataNascimento}" required="required" min="1930-01-01"
+							max="2020-01-01" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="atura" class="col-form-label">Altura em (cm)</label> <input
+							type="number" class="form-control" id="atura"
+							placeholder="Altura em (cm)" autofocus="autofocus"
+							th:field="*{altura}" required="required" pattern="[0-9]+$"
+							min="100" max="270" /> <span
+							th:if="${#fields.hasErrors('altura')}" th:errors="*{altura}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="peso" class="col-form-label">Peso</label> <input
+							type="number" class="form-control" id="peso"
+							placeholder="Peso do Paciente" autofocus="autofocus"
+							th:field="*{peso}" required="required" pattern="[0-9]+$" min="40"
+							max="300" /> <span th:if="${#fields.hasErrors('peso')}"
+							th:errors="*{peso}" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-md-3" style="margin-top: 5px">
+						<label for="sexo">Sexo</label> <select required id="sexo"
+							class="form-control" th:field="*{sexo}">
+							<option value="">Selecione...</option>
+							<option
+								th:each="sexo : ${T(dev.fujioka.felipe.projetoJava.enums.Sexo).values()}"
+								th:value="${sexo.sigla}" th:text="${sexo.descricao}"></option>
+
+						</select>
+					</div>
+					<div class="form-group col-md-3" style="margin-top: 5px">
+						<label for="planosaude">Plano de Saúde</label> <select required id="planoSaude"
+							class="form-control" th:field="*{planoSaude}">
+							<option value="">Selecione...</option>
+							<option
+								th:each="planoSaude : ${planoSaude}"
+								th:value="${planoSaude.id}" th:text="${planoSaude.nome}"></option>
+
+						</select>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

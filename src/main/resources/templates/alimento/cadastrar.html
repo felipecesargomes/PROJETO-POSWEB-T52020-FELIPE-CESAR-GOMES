@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light"
+			style="margin-top: 56px; border-bottom: 1px solid rgb(222, 226, 230);">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span style="color: white;">Cadastrar Alimentos</span></li>
+				</ul>
+			</div>
+			<a class="btn btn-light" href="/alimento/listar" role="button"> <span
+				class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+				<span>Listar Alimentos</span>
+			</a>
+		</nav>
+		<div class="container" id="cadastro">
+			<div th:replace="fragments/alerta"></div>
+			<form th:action="@{/alimento/salvar}" th:object="${alimento}"
+				method="POST">
+				<div th:replace="fragments/validacao  :: validacao"></div>
+				<div class="form-row" style="padding-top: 5%;">
+					<input type="hidden" class="form-control" id="id"
+						placeholder="ID alimento" autofocus="autofocus" th:field="*{id}" />
+					<div class="form-group col-md-6">
+						<label for="nomeAlimento" class="col-form-label">Nome do
+							Alimento</label> <input type="text" class="form-control"
+							id="nomeAlimento" placeholder="Nome do Alimento"
+							autofocus="autofocus" th:field="*{nomeAlimento}"
+							pattern="[A-Za-zÂ-ûÁ-ú ]+"
+							title="Para esse campo digite somente letras."
+							required="required" /> <span
+							th:if="${#fields.hasErrors('nomeAlimento')}"
+							th:errors="*{nomeAlimento}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="kcal" class="col-form-label">Quantidade de
+							Kcal</label> <input type="number" class="form-control" id="kcal"
+							placeholder="Kcal do Alimento" autofocus="autofocus"
+							th:field="*{kcal}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números." min="0"
+							step="0.01" /> <span th:if="${#fields.hasErrors('kcal')}"
+							th:errors="*{kcal}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="carb" class="col-form-label">Quantidade de
+							carboidrato</label> <input type="number" class="form-control" id="carb"
+							placeholder="Quantidade de Carboidrato do Alimento"
+							autofocus="autofocus" th:field="*{carb}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('carb')}" th:errors="*{carb}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="prot" class="col-form-label">Quantidade de
+							proteina</label> <input type="number" class="form-control" id="prot"
+							placeholder="Quantidade de Proteína do Alimento"
+							autofocus="autofocus" th:field="*{prot}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('prot')}" th:errors="*{prot}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="gordTotais" class="col-form-label">Gordura
+							Totais</label> <input type="number" class="form-control" id="gordTotais"
+							placeholder="Quantidade de Gordura Totais do Alimento"
+							autofocus="autofocus" th:field="*{gordTotais}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('gordTotais')}"
+							th:errors="*{gordTotais}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="vitaminaA" class="col-form-label">Vitamina A</label> <input
+							type="number" class="form-control" id="vitaminaA"
+							placeholder="Quantidade de vitamina A" autofocus="autofocus"
+							th:field="*{vitaminaA}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('vitaminaA')}"
+							th:errors="*{vitaminaA}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="vitaminaB" class="col-form-label">Vitamina B</label> <input
+							type="number" class="form-control" id="vitaminaB"
+							placeholder="Quantidade de vitamina B" autofocus="autofocus"
+							th:field="*{vitaminaB}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('vitaminaB')}"
+							th:errors="*{vitaminaB}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="vitaminaC" class="col-form-label">Vitamina C</label> <input
+							type="number" class="form-control" id="vitaminaC"
+							placeholder="Quantidade de vitamina C" autofocus="autofocus"
+							th:field="*{vitaminaC}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('vitaminaC')}"
+							th:errors="*{vitaminaC}" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="calcio" class="col-form-label">Cálcio</label> <input
+							type="number" class="form-control" id="calcio"
+							placeholder="Quantidade de Cálcio" autofocus="autofocus"
+							th:field="*{calcio}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('calcio')}" th:errors="*{calcio}"
+							class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="ferro" class="col-form-label">Ferro</label> <input
+							type="number" class="form-control" id="ferro" placeholder="Ferro"
+							autofocus="autofocus" th:field="*{ferro}" pattern="[0-9]+$"
+							title="Para esse campo digite somente números."
+							required="required" min="0" step="0.01" /> <span
+							th:if="${#fields.hasErrors('ferro')}" th:errors="*{ferro}"
+							class="text-danger"></span>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
