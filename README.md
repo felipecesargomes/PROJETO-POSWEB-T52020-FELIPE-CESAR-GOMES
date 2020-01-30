@@ -21,10 +21,187 @@ Finalidade: Projeto de JAVA WEB para a pós graduação. Tecnologias utilizadas:
 <li>POSTGRES</li>
 <li>Thymeleaf</li> </pre></code>
 
+Classe Abstrata (@MappedSuperclass) para reaproveitar código para as Classes Paciente e Nutricionista
+
+<table>
+<thead>
+<tr>
+<th>PessoaAbstractEntity</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Numérico</td>
+</tr>
+<tr>
+<td>nome</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>sobrenome</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>rg</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>cpf</td>
+<td>Texto</td>
+</tr>
+</tbody>
+</table>
+
 Entidades:
 Alimentos, Consultas, Nutricionista, Paciente, PlanoSaude
 
-Banco de Dados utilizado? Postgres! Data Base Name = sysnutri.
+<table>
+<thead>
+<tr>
+<th>Paciente</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>altura</td>
+<td>Integer Wrapper</td>
+</tr>
+<tr>
+<td>sexo</td>
+<td>ENUM</td>
+</tr>
+<tr>
+<td>peso</td>
+<td>Double Wrapper</td>
+</tr>
+<tr>
+<td>imc</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>planoSaude</td>
+<td>Plano Saude</td>
+</tr>
+<tr>
+<td>dataCriacao</td>
+<td>Data</td>
+</tr>
+<tr>
+<td>dataNascimento</td>
+<td>Data</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Alimentos</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nomeAlimento</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>kcal</td>
+<td>Double Wrapper</td>
+</tr>
+<tr>
+<td>carb</td>
+<td>Double Wrapper</td>
+</tr>
+<tr>
+<td>prot</td>
+<td>Double Wrapper</td>
+</tr>
+<td>gordTotais</td>
+<td>Double Wrapper</td>
+</tr>
+<td>vitaminaA</td>
+<td>Double Wrapper</td>
+</tr>
+<td>vitaminaB</td>
+<td>Double Wrapper</td>
+</tr>
+<td>vitaminaC</td>
+<td>Double Wrapper</td>
+</tr>
+<td>calcio</td>
+<td>Double Wrapper</td>  
+</tr>
+<td>ferro</td>
+<td>Double Wrapper</td> 
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th>Nutricionista</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>crn</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>turnoAtendimento</td>
+<td>ENUM</td>
+</tr>
+<tr>
+<td>salario</td>
+<td>BigDecimal</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Consultas</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dataConsulta</td>
+<td>Data</td>
+</tr>
+<tr>
+<td>paciente</td>
+<td>Paciente</td>
+</tr>
+<tr>
+<td>nutricionista</td>
+<td>Nutricionista</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Plano de Saúde</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nome</td>
+<td>Texto</td>
+</tr>
+</tbody>
+</table>
 
 <h1>Tela Inicial do Projeto</h1>
 <img src="https://felipecesargomes.com.br/sysnutri-home.png" alt="" style="max-width:100%;">
