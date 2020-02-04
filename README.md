@@ -13,7 +13,6 @@ Finalidade: Projeto de JAVA WEB para a pós graduação. Tecnologias utilizadas:
 <li>Maven</li>
 <li>JDK11</li>
 <li>SpringBoot</li>
-<li>SpringDataJPA</li>
 <li>DataJPA</li>
 <li>DevTools</li>
 <li>BootStrap</li>
