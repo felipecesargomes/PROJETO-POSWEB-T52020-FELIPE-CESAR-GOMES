@@ -9,7 +9,6 @@ Proposta do Trabalho descrito no seguinte link: <a href="https://github.com/feli
 Finalidade: Projeto de JAVA WEB para a pós graduação. Tecnologias utilizadas:
 
 <pre><code>
-<li>REST</li>
 <li>Maven</li>
 <li>JDK11</li>
 <li>SpringBoot</li>
